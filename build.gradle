@@ -1,0 +1,21 @@
+apply plugin: 'com.lytmoon.pluginforone'
+group = "com.lytmoon"
+version = "1.0.0"
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        google()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath "com.lytmoon:pluginforone:1.0.0"
+    }
+}
+
+//repositories {
+//    mavenLocal() // 本地 Maven 仓库
+//    mavenCentral() // 中央 Maven 仓库
+//}
+
+

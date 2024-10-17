@@ -1,0 +1,50 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.8.0'
+    id 'maven-publish'
+    id 'groovy'
+}
+apply from: rootProject.file("gradle/library-common.gradle")
+
+
+group = "com.lytmoon"
+version = "1.0.0"
+
+
+//gradlePlugin {
+//    plugins {
+//        create("my-plugin-for-one") {
+//            id = "com.lytmoon.pluginforone"
+//            implementationClass = "com.lytmoon.pluginforone.MyPlugin"
+//        }
+//    }
+//}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.4.10"
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            groupId = project.group
+            artifactId = "pluginforone"
+            version = project.version
+        }
+    }
+
+}
+//或者 执行 ./gradlew :pluginforone:publishToMavenLocal发布
+tasks.register('upload') {
+    dependsOn publishToMavenLocal
+}
+
+
+
+
+
+
+
+
+
+
